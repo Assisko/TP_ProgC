@@ -1,65 +1,63 @@
 #include <stdio.h>
 
-int main(void) {
-    int num1 = 12;
-    int num2 = 4;
-    char op = '%';  /* a changer pour essayer avec : '-', '*', '/', '%', '&', '|', '~' */
+int main() {
+    int num1, num2;
+    char op;
 
-    int resultat = 0;
+    // Saisie des deux nombres
+    printf("Entrez le premier nombre : ");
+    scanf("%d", &num1);
 
-    printf("num1 = %d, num2 = %d, opérateur = '%c'\n\n", num1, num2, op);
+    printf("Entrez le deuxième nombre : ");
+    scanf("%d", &num2);
 
+    // Saisie de l'opérateur
+    printf("Entrez l'opérateur (+, -, *, /, %%, &, |, ~) : ");
+    scanf(" %c", &op); // espace avant %c pour ignorer le retour à la ligne
+
+    // Structure switch
     switch (op) {
         case '+':
-            resultat = num1 + num2;
-            printf("Résultat : %d + %d = %d\n", num1, num2, resultat);
+            printf("Résultat : %d + %d = %d\n", num1, num2, num1 + num2);
             break;
 
         case '-':
-            resultat = num1 - num2;
-            printf("Résultat : %d - %d = %d\n", num1, num2, resultat);
+            printf("Résultat : %d - %d = %d\n", num1, num2, num1 - num2);
             break;
 
         case '*':
-            resultat = num1 * num2;
-            printf("Résultat : %d * %d = %d\n", num1, num2, resultat);
+            printf("Résultat : %d * %d = %d\n", num1, num2, num1 * num2);
             break;
 
         case '/':
-            if (num2 != 0) {
-                resultat = num1 / num2;
-                printf("Résultat : %d / %d = %d\n", num1, num2, resultat);
-            } else {
-                printf("Erreur : division par zéro !\n");
-            }
+            if (num2 != 0)
+                printf("Résultat : %d / %d = %d\n", num1, num2, num1 / num2);
+            else
+                printf("Erreur : division par zéro impossible.\n");
             break;
 
         case '%':
-            if (num2 != 0) {
-                resultat = num1 % num2;
-                printf("Résultat : %d %% %d = %d\n", num1, num2, resultat);
-            } else {
-                printf("Erreur : modulo par zéro !\n");
-            }
+            if (num2 != 0)
+                printf("Résultat : %d %% %d = %d\n", num1, num2, num1 % num2);
+            else
+                printf("Erreur : modulo par zéro impossible.\n");
             break;
 
         case '&':
-            resultat = num1 & num2;
-            printf("Résultat : %d & %d = %d\n", num1, num2, resultat);
+            printf("Résultat : %d & %d = %d\n", num1, num2, num1 & num2);
             break;
 
         case '|':
-            resultat = num1 | num2;
-            printf("Résultat : %d | %d = %d\n", num1, num2, resultat);
+            printf("Résultat : %d | %d = %d\n", num1, num2, num1 | num2);
             break;
 
         case '~':
             printf("Résultat : ~%d = %d\n", num1, ~num1);
+            printf("Résultat : ~%d = %d\n", num2, ~num2);
             break;
 
         default:
-            printf("Erreur : opérateur '%c' non reconnu !\n", op);
-            break;
+            printf("Erreur : opérateur inconnu.\n");
     }
 
     return 0;
