@@ -1,21 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    int d = 0x10001000;  // valeur à tester (modifiable)
+    int d = 0x00100008; // exemple
+    int bit4 = (d >> 27) & 1;   // 4ème bit en partant de gauche
+    int bit20 = (d >> 11) & 1;  // 20ème bit en partant de gauche
 
-    // Positions des bits (en comptant depuis la gauche sur 32 bits)
-    int bit4  = 28;  // 4ème bit en partant de la gauche
-    int bit20 = 12;  // 20ème bit en partant de la gauche
-
-    // Extraction des bits
-    int b4  = (d >> bit4) & 1;   // récupère le bit 28
-    int b20 = (d >> bit20) & 1;  // récupère le bit 12
-
-    // Vérification : les deux bits doivent être égaux à 1
-    int resultat = (b4 == 1 && b20 == 1) ? 1 : 0;
-
-    // Affichage du résultat
-    printf("%d\n", resultat);
+    if (bit4 == 1 && bit20 == 1)
+        printf("1\n");
+    else
+        printf("0\n");
 
     return 0;
 }
