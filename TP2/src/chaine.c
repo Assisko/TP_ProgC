@@ -6,10 +6,16 @@ int main() {
 
     // Lecture des chaînes
     printf("Entrez la première chaîne : ");
-    scanf("%s", str1);
+    fgets(str1, sizeof(str1), stdin);
+
+    // Supprimer le '\n' à la fin
+    for (i = 0; str1[i] != '\0'; i++)
+        if (str1[i] == '\n') str1[i] = '\0';
 
     printf("Entrez la deuxième chaîne : ");
-    scanf("%s", str2);
+    fgets(str2, sizeof(str2), stdin);
+    for (i = 0; str2[i] != '\0'; i++)
+        if (str2[i] == '\n') str2[i] = '\0';
 
     // 1️⃣ Longueur de str1
     i = 0;
